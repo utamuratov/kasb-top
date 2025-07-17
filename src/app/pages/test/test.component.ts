@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { SubmittedComponent } from '../../components/submitted/submitted.component';
 import { ButtonModule } from 'primeng/button';
 import { StepperModule } from 'primeng/stepper';
@@ -8,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
 import { forkJoin } from 'rxjs';
 import { CheckboxModule } from 'primeng/checkbox';
+import { BaseService } from '../../core/services/base.service';
 
 @Component({
   selector: 'app-test',
@@ -22,7 +28,7 @@ import { CheckboxModule } from 'primeng/checkbox';
   ],
   template: `
     <main class="bg-gray-50">
-      @if (showNatijaID) {
+      @if (natijaID()) {
         <app-submitted></app-submitted>
       } @else {
         <div class="min-h-screen py-8">
@@ -208,7 +214,8 @@ import { CheckboxModule } from 'primeng/checkbox';
                                   {{ activeQuestion.question }}
                                 </h2>
                                 <p class="text-gray-500 mb-8">
-                                  #Bir nechtasini tanlay olasiz
+                                  #Bir nechta javobni tanlay olasiz yoki umuman
+                                  tanlamasligingiz ham mumkin
                                 </p>
 
                                 @for (
@@ -239,43 +246,49 @@ import { CheckboxModule } from 'primeng/checkbox';
                   </p-stepper>
                 </div>
               </div>
-              <div id="questionContainer" class="mt-12">
-                <div class="flex justify-between mt-12">
-                  @if (activeQuestionIndex > 0) {
-                    <button
-                      id="prevButton"
-                      class="cursor-pointer px-8 py-4 !rounded-button text-gray-700 bg-gray-100 hover:bg-gray-200 transition-all transform hover:-translate-y-1 font-medium"
-                      (click)="prevQuestion()"
-                    >
-                      <i class="ri-arrow-left-line mr-2"></i>
-                      Oldingi savol
-                    </button>
-                  }
+              @if (activeQuestion) {
+                <div id="questionContainer" class="mt-12">
+                  <div class="flex justify-between mt-12">
+                    @if (activeQuestionIndex > 0) {
+                      <button
+                        id="prevButton"
+                        class="cursor-pointer px-8 py-4 !rounded-button text-gray-700 bg-gray-100 hover:bg-gray-200 transition-all transform hover:-translate-y-1 font-medium"
+                        (click)="prevQuestion()"
+                      >
+                        <i class="ri-arrow-left-line mr-2"></i>
+                        Oldingi savol
+                      </button>
+                    }
 
-                  <button
-                    id="nextButton"
-                    (click)="nextQuestion()"
-                    class="cursor-pointer px-8 py-4 !rounded-button text-white  transition-all transform hover:-translate-y-1 font-medium ml-auto"
-                    [ngClass]="
-                      activeQuestion.answer != null &&
-                      activeQuestion.answer != undefined
-                        ? 'bg-primary hover:bg-blue-600'
-                        : 'bg-blue-200'
-                    "
-                    [disabled]="
-                      !(
-                        activeQuestion.answer != null &&
-                        activeQuestion.answer != undefined
-                      )
-                    "
-                  >
-                    {{
-                      activeQuestionIndex === 65 ? 'Tugatish' : 'Keyingi savol'
-                    }}
-                    <i class="ri-arrow-right-line ml-2"></i>
-                  </button>
+                    <button
+                      id="nextButton"
+                      (click)="nextQuestion()"
+                      class="cursor-pointer px-8 py-4 !rounded-button text-white  transition-all transform hover:-translate-y-1 font-medium ml-auto"
+                      [ngClass]="
+                        (activeQuestion.answer != null &&
+                          activeQuestion.answer != undefined) ||
+                        activeQuestionType === 3
+                          ? 'bg-primary hover:bg-blue-600'
+                          : 'bg-blue-200'
+                      "
+                      [disabled]="
+                        !(
+                          (activeQuestion.answer != null &&
+                            activeQuestion.answer != undefined) ||
+                          activeQuestionType === 3
+                        )
+                      "
+                    >
+                      {{
+                        activeQuestionIndex === 65
+                          ? 'Tugatish'
+                          : 'Keyingi savol'
+                      }}
+                      <i class="ri-arrow-right-line ml-2"></i>
+                    </button>
+                  </div>
                 </div>
-              </div>
+              }
             </div>
           </div>
         </div>
@@ -286,7 +299,7 @@ import { CheckboxModule } from 'primeng/checkbox';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class TestComponent {
-  showNatijaID = false;
+  natijaID = signal<string | undefined>(undefined);
 
   questions: any[] = [];
   activeQuestionIndex = 0;
@@ -297,15 +310,13 @@ export default class TestComponent {
     return this.questions[this.activeQuestionIndex];
   }
 
-  constructor() {
-    forkJoin([
-      inject(HttpClient).get<any>('./data/riasec.json'),
-      inject(HttpClient).get<any>('./data/mbti.json'),
-      inject(HttpClient).get<any>('./data/mi.json'),
-    ]).subscribe((data) => {
-      this.questions = this.questions.concat(data[0].RIASEC.questions);
-      this.questions = this.questions.concat(data[1].MBTI.questions);
-      this.questions = this.questions.concat(data[2].MI.questions);
+  constructor(private $base: BaseService) {
+    $base.getAll().subscribe((data: any) => {
+      this.questions = [
+        ...data.riasec.questions,
+        ...data.mbti.questions,
+        ...data.mi.questions,
+      ];
     });
   }
 
@@ -316,8 +327,16 @@ export default class TestComponent {
 
   nextQuestion() {
     if (this.activeQuestionIndex === 65) {
-      this.showNatijaID = true;
       console.log(this.questions);
+      this.$base
+        .submit({
+          riasec: this.questions.slice(0, 30),
+          mbti: this.questions.slice(30, 58),
+          mi: this.questions.slice(58).map((q) => ({ ...q, answer: [] })),
+        })
+        .subscribe((resultId) => {
+          this.natijaID.set(resultId);
+        });
       return;
     }
 

@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [RouterLink],
   template: `
     <main class="bg-white">
       <section
@@ -27,7 +28,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
               toping. Professional testlar orqali shaxsiy tavsiyalar oling.
             </p>
             <a
-              href="./testlar.html"
+              routerLink="/test"
               class="bg-primary text-white px-8 py-4 !rounded-button text-lg font-semibold hover:bg-blue-600 transition-colors whitespace-nowrap"
             >
               Testni boshlash
