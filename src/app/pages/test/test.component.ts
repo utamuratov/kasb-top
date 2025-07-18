@@ -14,6 +14,8 @@ import { NgClass } from '@angular/common';
 import { forkJoin } from 'rxjs';
 import { CheckboxModule } from 'primeng/checkbox';
 import { BaseService } from '../../core/services/base.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SkeletonModule } from 'primeng/skeleton';
 
 @Component({
   selector: 'app-test',
@@ -25,11 +27,12 @@ import { BaseService } from '../../core/services/base.service';
     FormsModule,
     NgClass,
     CheckboxModule,
+    SkeletonModule,
   ],
   template: `
     <main class="bg-gray-50">
-      @if (natijaID()) {
-        <app-submitted></app-submitted>
+      @if (natijaID(); as natijaID) {
+        <app-submitted [natijaID]="natijaID"></app-submitted>
       } @else {
         <div class="min-h-screen py-8">
           <div class="max-w-3xl mx-auto px-4">
@@ -243,6 +246,20 @@ import { BaseService } from '../../core/services/base.service';
                         </ng-template>
                       </p-step-panel>
                     </p-step-panels>
+
+                    @if (isLoading()) {
+                      <div class="flex flex-col gap-2">
+                        <p-skeleton height="2rem" />
+                        <p-skeleton height="2rem" width="70%" />
+                        <p-skeleton />
+                        <p-skeleton />
+                        <p-skeleton width="10rem" />
+                      </div>
+                      <p-skeleton height="4rem" class="mt-4 block" />
+                      <p-skeleton height="4rem" class="mt-4 block" />
+                      <p-skeleton height="4rem" class="mt-4 block" />
+                      <p-skeleton height="4rem" class="mt-4 block" />
+                    }
                   </p-stepper>
                 </div>
               </div>
@@ -265,9 +282,10 @@ import { BaseService } from '../../core/services/base.service';
                       (click)="nextQuestion()"
                       class="cursor-pointer px-8 py-4 !rounded-button text-white  transition-all transform hover:-translate-y-1 font-medium ml-auto"
                       [ngClass]="
-                        (activeQuestion.answer != null &&
+                        ((activeQuestion.answer != null &&
                           activeQuestion.answer != undefined) ||
-                        activeQuestionType === 3
+                          activeQuestionType === 3) &&
+                        !submitLoading()
                           ? 'bg-primary hover:bg-blue-600'
                           : 'bg-blue-200'
                       "
@@ -276,7 +294,7 @@ import { BaseService } from '../../core/services/base.service';
                           (activeQuestion.answer != null &&
                             activeQuestion.answer != undefined) ||
                           activeQuestionType === 3
-                        )
+                        ) || submitLoading()
                       "
                     >
                       {{
@@ -299,24 +317,32 @@ import { BaseService } from '../../core/services/base.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class TestComponent {
-  natijaID = signal<string | undefined>(undefined);
+  private $route = inject(ActivatedRoute);
+  private router = inject(Router);
+  natijaID = signal<string | undefined>(
+    this.$route.snapshot.params['natijaID'],
+  );
 
-  questions: any[] = [];
+  questions = signal<any[]>([]);
   activeQuestionIndex = 0;
 
   activeQuestionType: 1 | 2 | 3 = 1;
+  isLoading = signal<boolean>(false);
+  submitLoading = signal<boolean>(false);
 
   get activeQuestion() {
-    return this.questions[this.activeQuestionIndex];
+    return this.questions()[this.activeQuestionIndex];
   }
 
   constructor(private $base: BaseService) {
+    this.isLoading.set(true);
     $base.getAll().subscribe((data: any) => {
-      this.questions = [
+      this.isLoading.set(false);
+      this.questions.set([
         ...data.riasec.questions,
         ...data.mbti.questions,
         ...data.mi.questions,
-      ];
+      ]);
     });
   }
 
@@ -327,15 +353,21 @@ export default class TestComponent {
 
   nextQuestion() {
     if (this.activeQuestionIndex === 65) {
-      console.log(this.questions);
+      this.submitLoading.set(true);
       this.$base
         .submit({
-          riasec: this.questions.slice(0, 30),
-          mbti: this.questions.slice(30, 58),
-          mi: this.questions.slice(58).map((q) => ({ ...q, answer: [] })),
+          riasec: this.questions().slice(0, 30),
+          mbti: this.questions().slice(30, 58),
+          mi: this.questions()
+            .slice(58)
+            .map((q) => ({ ...q, answer: [] })),
         })
-        .subscribe((resultId) => {
-          this.natijaID.set(resultId);
+        .subscribe((w) => {
+          this.submitLoading.set(false);
+          this.natijaID.set(w.resultCode);
+          this.router.navigate([], {
+            queryParams: { natijaID: this.natijaID() },
+          });
         });
       return;
     }

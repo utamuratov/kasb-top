@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-submitted',
-  imports: [],
+  imports: [RouterLink],
   template: `
     <div class="min-h-screen py-8">
       <div class="max-w-3xl mx-auto px-4">
@@ -10,7 +11,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
           <div class="text-center mb-12">
             <h1 class="text-3xl font-bold text-gray-900 mb-4">Tabriklaymiz!</h1>
             <div class="text-5xl font-bold text-primary my-8 tracking-wider">
-              211112
+              {{ natijaID() }}
             </div>
             <p class="text-gray-600 mb-8">
               Iltimos, natija ID raqamini saqlab qo'ying. Keyinchalik
@@ -26,7 +27,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
               </button>
               <a
                 id="viewResultButton"
-                href="./natija.html"
+                routerLink="/result"
+                [queryParams]="{ natijaID: natijaID() }"
                 class="px-8 py-4 !rounded-button text-white bg-primary hover:bg-blue-600 transition-all transform hover:-translate-y-1 font-medium"
               >
                 <i class="ri-eye-line mr-2"></i>
@@ -51,4 +53,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './submitted.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SubmittedComponent {}
+export class SubmittedComponent {
+  natijaID = input.required<string>();
+}

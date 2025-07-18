@@ -1,13 +1,18 @@
+import { NgClass } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  inject,
   ViewChild,
 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { BaseService } from '../../core/services/base.service';
 
 @Component({
   selector: 'app-result',
-  imports: [],
+  imports: [FormsModule, NgClass],
   template: `
     <main class="bg-gray-50">
       <div class="min-h-screen py-8">
@@ -34,11 +39,16 @@ import {
                   class="w-full pl-12 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none text-gray-700"
                   placeholder="Natija ID raqamini kiriting"
                   required
+                  [(ngModel)]="natijaID"
                 />
               </div>
               <button
-                (click)="scrollToSection()"
-                class="w-full mt-4 px-8 py-4 !rounded-button text-white bg-primary hover:bg-blue-600 transition-all transform hover:-translate-y-1 font-medium"
+                [disabled]="!natijaID"
+                [ngClass]="
+                  natijaID ? 'bg-primary hover:bg-blue-600' : 'bg-blue-200'
+                "
+                (click)="discoverResult()"
+                class="w-full mt-4 px-8 py-4 !rounded-button text-white transition-all transform hover:-translate-y-1 font-medium"
               >
                 Natijani ko'rish
               </button>
@@ -179,6 +189,10 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ResultComponent {
+  private route = inject(ActivatedRoute);
+  private $data = inject(BaseService);
+  natijaID = this.route.snapshot.queryParams['natijaID'];
+
   showResult = false;
 
   @ViewChild('result') mySection!: ElementRef;
@@ -186,5 +200,9 @@ export default class ResultComponent {
   scrollToSection() {
     this.showResult = true;
     this.mySection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  discoverResult() {
+    this.$data.discoverResult(this.natijaID).subscribe();
   }
 }

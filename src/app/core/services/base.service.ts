@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class BaseService {
-  readonly API_URL = 'http://178.253.43.118:107/api';
+  readonly API_URL = 'https://firstep.uz/api-test';
 
   constructor(private http: HttpClient) {}
 
@@ -14,6 +14,13 @@ export class BaseService {
   }
 
   submit(model: any) {
-    return this.http.post<string>(`${this.API_URL}/Test/submit`, model);
+    return this.http.post<{ resultCode: string }>(
+      `${this.API_URL}/Test/submit`,
+      model,
+    );
+  }
+
+  discoverResult(natijaID: string) {
+    return this.http.get(`${this.API_URL}/Test/code/${natijaID}`);
   }
 }
