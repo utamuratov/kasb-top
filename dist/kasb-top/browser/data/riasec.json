@@ -1,0 +1,128 @@
+{
+  "RIASEC": {
+    "title": "RIASEC Test (30 savol)",
+    "description": "Shaxsiy qiziqish yo‘nalishini aniqlash uchun qisqaroq test",
+    "questions": [
+      {
+        "uz": "Men texnika yoki asboblar bilan ishlashni yoqtiraman.",
+        "type": "R"
+      },
+      {
+        "uz": "Men biror narsani tuzatish yoki yig‘ishni yoqtiraman.",
+        "type": "R"
+      },
+      {
+        "uz": "Ochiq havoda ishlash menga yoqadi.",
+        "type": "R"
+      },
+      {
+        "uz": "Qo‘llarim bilan biror narsa yasash menga maroqli.",
+        "type": "R"
+      },
+      {
+        "uz": "Men jismoniy faol ishlarni afzal ko‘raman.",
+        "type": "R"
+      },
+      {
+        "uz": "Muammolarni tahlil qilishni yaxshi ko‘raman.",
+        "type": "I"
+      },
+      {
+        "uz": "Men yangi narsalarni o‘rganishni yaxshi ko‘raman.",
+        "type": "I"
+      },
+      {
+        "uz": "Men tajribalar o‘tkazishni xohlayman.",
+        "type": "I"
+      },
+      {
+        "uz": "Murakkab savollarga javob topishni yoqtiraman.",
+        "type": "I"
+      },
+      {
+        "uz": "Faktlarni izlab topishga qiziqaman.",
+        "type": "I"
+      },
+      {
+        "uz": "San’at asarlarini yaratishni yoqtiraman.",
+        "type": "A"
+      },
+      {
+        "uz": "She’r, hikoya yozishga qiziqaman.",
+        "type": "A"
+      },
+      {
+        "uz": "Yangi g‘oyalar o‘ylab topishni yaxshi ko‘raman.",
+        "type": "A"
+      },
+      {
+        "uz": "Musiqa yaratish yoki chalishga qiziqaman.",
+        "type": "A"
+      },
+      {
+        "uz": "Ranglar bilan ishlash menga yoqadi.",
+        "type": "A"
+      },
+      {
+        "uz": "Odamlarga yordam berishni yaxshi ko‘raman.",
+        "type": "S"
+      },
+      {
+        "uz": "Kimnidir quvontirishdan zavqlanaman.",
+        "type": "S"
+      },
+      {
+        "uz": "Tushuntirish, dars berish menga maroqli.",
+        "type": "S"
+      },
+      {
+        "uz": "Jamoa bilan ishlashni yoqtiraman.",
+        "type": "S"
+      },
+      {
+        "uz": "Odamlar bilan samimiy muloqot qilishni xush ko‘raman.",
+        "type": "S"
+      },
+      {
+        "uz": "Yetakchilik qilishni istayman.",
+        "type": "E"
+      },
+      {
+        "uz": "Boshqalarga ta’sir o‘tkazishni yoqtiraman.",
+        "type": "E"
+      },
+      {
+        "uz": "Loyihalarni boshqarishni xohlayman.",
+        "type": "E"
+      },
+      {
+        "uz": "Odamlarni ishontirish menga qiziqarli.",
+        "type": "E"
+      },
+      {
+        "uz": "Yangi biznes g‘oyalarini taklif qilishni yoqtiraman.",
+        "type": "E"
+      },
+      {
+        "uz": "Tartibli ishlash menga yoqadi.",
+        "type": "C"
+      },
+      {
+        "uz": "Jadval tuzishdan zavqlanaman.",
+        "type": "C"
+      },
+      {
+        "uz": "Hisob-kitob ishlari menga qiziq.",
+        "type": "C"
+      },
+      {
+        "uz": "Ma’lumotlarni tartibga solishni yoqtiraman.",
+        "type": "C"
+      },
+      {
+        "uz": "Hujjatlar bilan ishlashni yaxshi ko‘raman.",
+        "type": "C"
+      }
+    ]
+  }
+}

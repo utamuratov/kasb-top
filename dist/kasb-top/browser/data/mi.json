@@ -1,0 +1,72 @@
+{
+    "MI": {
+        "title": "MI Test (24 savol)",
+        "description": "Multiple Intelligence (Ko‘p qirrali aql turlari)",
+        "questions": [
+            {
+                "question": "Linguistik",
+                "answers": [
+                    "Men o‘zim fikrlarimni so‘zlar bilan yaxshi ifodalashni bilaman.",
+                    "She’r, hikoya yoki maqola yozishni yaxshi ko‘raman.",
+                    "Men yangi so‘zlar va tillarni o‘rganishga qiziqaman."
+                ]
+            },
+            {
+                "question": "Mantiqiy-matematik",
+                "answers": [
+                    "Menga hisob-kitoblar va misollar yechish yoqadi.",
+                    "Men narsalar orasidagi bog‘liqlikni tahlil qilishni yaxshi ko‘raman.",
+                    "Menga mantiqiy o‘yinlar, masalan, shaxmat yoqadi."
+                ]
+            },
+            {
+                "question": "Vizual-makonsal",
+                "answers": [
+                    "Men rasmlar, shakllar va ranglar bilan ishlashni yoqtiraman.",
+                    "Men narsalarni ko‘z oldimga tasavvur qilib chiza olaman.",
+                    "Men xaritalar, diagrammalar bilan ishlashni yaxshi ko‘raman."
+                ]
+            },
+            {
+                "question": "Musiqiy",
+                "answers": [
+                    "Men tezda qo‘shiq yoki musiqa eslab qolaman.",
+                    "Men ohang, ritm va tovushlarga sezgirman.",
+                    "Men biror asbobda chalishni yoki kuylashni yoqtiraman."
+                ]
+            },
+            {
+                "question": "Jismoniy-kinestetik",
+                "answers": [
+                    "Men jismoniy faoliyatni yoqtiraman: sport, raqs, harakat.",
+                    "Men narsalarni qo‘llarim bilan sinab ko‘rishni afzal ko‘raman.",
+                    "Men fikrni harakat bilan ifodalashni yaxshi ko‘raman."
+                ]
+            },
+            {
+                "question": "Shaxslararo",
+                "answers": [
+                    "Men boshqalar bilan yaxshi muloqot qila olaman.",
+                    "Men guruhda ishlashni yaxshi ko‘raman.",
+                    "Men boshqalarni tushunishga harakat qilaman."
+                ]
+            },
+            {
+                "question": "Intrapersonal",
+                "answers": [
+                    "Men o‘z his-tuyg‘ularimni chuqur tushunaman.",
+                    "Men yolg‘izlikda o‘ylashni yoqtiraman.",
+                    "Men o‘z ustimda ishlashni xohlayman."
+                ]
+            },
+            {
+                "question": "Tabiiy (Naturalistik)",
+                "answers": [
+                    "Men hayvonlar va o‘simliklarga qiziqaman.",
+                    "Menga tabiatda yurish yoqadi.",
+                    "Men tabiatdagi o‘zgarishlarni tez payqayman."
+                ]
+            }
+        ]
+    }
+}

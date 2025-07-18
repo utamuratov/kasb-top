@@ -1,0 +1,372 @@
+{
+  "MBTI": {
+    "title": "MBTI Test (28 savol)",
+    "description": "Shaxsiy xarakter turlarini aniqlovchi test (MBTI asosida)",
+    "questions": [
+      {
+        "question": "Energiyaning manbai #1",
+        "answers": [
+          {
+            "uz": "Men ko‘p odamlar orasida o‘zimni qulay his qilaman.",
+            "type": "E"
+          },
+          {
+            "uz": "Men yolg‘izlikda dam olishni yaxshi ko‘raman.",
+            "type": "I"
+          }
+        ]
+      },
+      {
+        "question": "Energiyaning manbai #2",
+        "answers": [
+          {
+            "uz": "Men yangi tanishlar orttirishni yoqtiraman.",
+            "type": "E"
+          },
+          {
+            "uz": "Men bir nechta yaqin do‘stlar bilan bo‘lishni afzal ko‘raman.",
+            "type": "I"
+          }
+        ]
+      },
+      {
+        "question": "Energiyaning manbai #3",
+        "answers": [
+          {
+            "uz": "Men har doim biror narsa qilayotganimni xohlayman.",
+            "type": "E"
+          },
+          {
+            "uz": "Menga tinch va osoyishta dam olish yoqadi.",
+            "type": "I"
+          }
+        ]
+      },
+      {
+        "question": "Energiyaning manbai #4",
+        "answers": [
+          {
+            "uz": "Men fikrlarimni boshqalar bilan bo‘lishishni yoqtiraman.",
+            "type": "E"
+          },
+          {
+            "uz": "Fikrlarimni ichimda saqlab, o‘zim o‘ylab ko‘rishni yaxshi ko‘raman.",
+            "type": "I"
+          }
+        ]
+      },
+      {
+        "question": "Energiyaning manbai #5",
+        "answers": [
+          {
+            "uz": "Men yig‘ilishlar yoki jamoalarda faolman.",
+            "type": "E"
+          },
+          {
+            "uz": "Men kam gapirib, ko‘proq tinglayman.",
+            "type": "I"
+          }
+        ]
+      },
+      {
+        "question": "Energiyaning manbai #6",
+        "answers": [
+          {
+            "uz": "Odamlar bilan tez yaqinlashaman.",
+            "type": "E"
+          },
+          {
+            "uz": "Yangi tanishlar bilan asta-sekin munosabat quraman.",
+            "type": "I"
+          }
+        ]
+      },
+      {
+        "question": "Energiyaning manbai #7",
+        "answers": [
+          {
+            "uz": "Men kuchni tashqi muhitdan olaman.",
+            "type": "E"
+          },
+          {
+            "uz": "Men kuchni ichki fikrlarimdan olaman.",
+            "type": "I"
+          }
+        ]
+      },
+      {
+        "question": "Axborotni qabul qilish #1",
+        "answers": [
+          {
+            "uz": "Men faktlar va real ma’lumotlarga tayanaman.",
+            "type": "S"
+          },
+          {
+            "uz": "Men imkoniyatlar va g‘oyalar haqida ko‘proq o‘ylayman.",
+            "type": "N"
+          }
+        ]
+      },
+      {
+        "question": "Axborotni qabul qilish #2",
+        "answers": [
+          {
+            "uz": "Men hozirgi voqealarga e’tibor qarataman.",
+            "type": "S"
+          },
+          {
+            "uz": "Men kelajakni tasavvur qilishni yoqtiraman.",
+            "type": "N"
+          }
+        ]
+      },
+      {
+        "question": "Axborotni qabul qilish #3",
+        "answers": [
+          {
+            "uz": "Men amaliy tajribaga ishonaman.",
+            "type": "S"
+          },
+          {
+            "uz": "Men tasavvur va taxminlarga suyanaman.",
+            "type": "N"
+          }
+        ]
+      },
+      {
+        "question": "Axborotni qabul qilish #4",
+        "answers": [
+          {
+            "uz": "Men tafsilotlarga e’tibor beraman.",
+            "type": "S"
+          },
+          {
+            "uz": "Men umumiy rasmga e’tibor beraman.",
+            "type": "N"
+          }
+        ]
+      },
+      {
+        "question": "Axborotni qabul qilish #5",
+        "answers": [
+          {
+            "uz": "Men aniq ko‘rsatmalarni xohlayman.",
+            "type": "S"
+          },
+          {
+            "uz": "Men erkinlikni va ijodiy yondashuvni afzal ko‘raman.",
+            "type": "N"
+          }
+        ]
+      },
+      {
+        "question": "Axborotni qabul qilish #6",
+        "answers": [
+          {
+            "uz": "Men hozirgi voqealarga ko‘proq bog‘lanaman.",
+            "type": "S"
+          },
+          {
+            "uz": "Men 'agar…' deb o‘ylashni yaxshi ko‘raman.",
+            "type": "N"
+          }
+        ]
+      },
+      {
+        "question": "Axborotni qabul qilish #7",
+        "answers": [
+          {
+            "uz": "Men haqiqatni ko‘raman.",
+            "type": "S"
+          },
+          {
+            "uz": "Men imkoniyatlarni ko‘raman.",
+            "type": "N"
+          }
+        ]
+      },
+      {
+        "question": "Qaror qabul qilish uslubi #1",
+        "answers": [
+          {
+            "uz": "Men qarorlarni mantiqqa tayanib qabul qilaman.",
+            "type": "T"
+          },
+          {
+            "uz": "Men qaror qabul qilayotganda boshqalarning his-tuyg‘ularini hisobga olaman.",
+            "type": "F"
+          }
+        ]
+      },
+      {
+        "question": "Qaror qabul qilish uslubi #2",
+        "answers": [
+          {
+            "uz": "Men haqiqatni aytaman, hatto bu qiyin bo‘lsa ham.",
+            "type": "T"
+          },
+          {
+            "uz": "Men boshqalarga yoqadigan tarzda gapirishga harakat qilaman.",
+            "type": "F"
+          }
+        ]
+      },
+      {
+        "question": "Qaror qabul qilish uslubi #3",
+        "answers": [
+          {
+            "uz": "Men bahs-munozaralarni yoqtiraman.",
+            "type": "T"
+          },
+          {
+            "uz": "Men kelishuv va tinchlikni afzal ko‘raman.",
+            "type": "F"
+          }
+        ]
+      },
+      {
+        "question": "Qaror qabul qilish uslubi #4",
+        "answers": [
+          {
+            "uz": "Men muammoni hal qilishni xohlayman.",
+            "type": "T"
+          },
+          {
+            "uz": "Men odamlarning his-tuyg‘ulariga yordam berishni xohlayman.",
+            "type": "F"
+          }
+        ]
+      },
+      {
+        "question": "Qaror qabul qilish uslubi #5",
+        "answers": [
+          {
+            "uz": "Men adolat va qoidalarni muhim deb bilaman.",
+            "type": "T"
+          },
+          {
+            "uz": "Men mehr va hamdardlikni muhim deb bilaman.",
+            "type": "F"
+          }
+        ]
+      },
+      {
+        "question": "Qaror qabul qilish uslubi #6",
+        "answers": [
+          {
+            "uz": "Men odatda boshqalarga maslahat beraman.",
+            "type": "T"
+          },
+          {
+            "uz": "Men odatda boshqalarning hislarini tushunishga harakat qilaman.",
+            "type": "F"
+          }
+        ]
+      },
+      {
+        "question": "Qaror qabul qilish uslubi #7",
+        "answers": [
+          {
+            "uz": "Men sovuqqonlik bilan fikr yuritaman.",
+            "type": "T"
+          },
+          {
+            "uz": "Men ko‘proq yuragim bilan fikr yuritaman.",
+            "type": "F"
+          }
+        ]
+      },
+      {
+        "question": "Hayot tartibi #1",
+        "answers": [
+          {
+            "uz": "Men rejalashtirishni va tartibni yaxshi ko‘raman.",
+            "type": "J"
+          },
+          {
+            "uz": "Men moslashuvchanlik va erkinlikni yaxshi ko‘raman.",
+            "type": "P"
+          }
+        ]
+      },
+      {
+        "question": "Hayot tartibi #2",
+        "answers": [
+          {
+            "uz": "Men ishlarga oldindan tayyorgarlik ko‘raman.",
+            "type": "J"
+          },
+          {
+            "uz": "Men ishni oxirgi daqiqagacha qoldirishim mumkin.",
+            "type": "P"
+          }
+        ]
+      },
+      {
+        "question": "Hayot tartibi #3",
+        "answers": [
+          {
+            "uz": "Men harakatlarni aniq qadamlar bilan bajaraman.",
+            "type": "J"
+          },
+          {
+            "uz": "Men ishlarni qanday bo‘lsa, shunday qilishni afzal ko‘raman.",
+            "type": "P"
+          }
+        ]
+      },
+      {
+        "question": "Hayot tartibi #4",
+        "answers": [
+          {
+            "uz": "Men 'qiladigan ishlar ro‘yxati' tuzaman.",
+            "type": "J"
+          },
+          {
+            "uz": "Men ishlarni tabiiy ravishda oqimga ko‘ra qilaman.",
+            "type": "P"
+          }
+        ]
+      },
+      {
+        "question": "Hayot tartibi #5",
+        "answers": [
+          {
+            "uz": "Men ortiqcha kutilmagan holatlarni yoqtirmayman.",
+            "type": "J"
+          },
+          {
+            "uz": "Men kutilmagan imkoniyatlardan foydalanishni yoqtiraman.",
+            "type": "P"
+          }
+        ]
+      },
+      {
+        "question": "Hayot tartibi #6",
+        "answers": [
+          {
+            "uz": "Men tugallangan ishni ko‘rishni xohlayman.",
+            "type": "J"
+          },
+          {
+            "uz": "Men yangi ishlarni boshlashni yoqtiraman.",
+            "type": "P"
+          }
+        ]
+      },
+      {
+        "question": "Hayot tartibi #7",
+        "answers": [
+          {
+            "uz": "Men ishda aniqlik va nazoratni yoqtiraman.",
+            "type": "J"
+          },
+          {
+            "uz": "Men ijodiy tartibsizlikda ishlashni yaxshi ko‘raman.",
+            "type": "P"
+          }
+        ]
+      }
+    ]
+  }
+}
