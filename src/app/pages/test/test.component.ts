@@ -35,6 +35,7 @@ import { Toast } from 'primeng/toast';
     ],
     templateUrl: './test.component.html',
     styleUrl: './test.component.css',
+    providers: [MessageService],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class TestComponent {
