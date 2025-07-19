@@ -9,14 +9,14 @@ import { RouterLink } from '@angular/router';
             <div
                 class="max-w-7xl mx-auto px-4 flex items-center justify-between"
             >
-                <div class="flex items-center space-x-2">
+                <a class="flex items-center space-x-2" routerLink="/">
                     <div class="w-8 h-8 flex items-center justify-center">
                         <i class="ri-compass-3-line text-primary text-xl"></i>
                     </div>
                     <span class="font-['Pacifico'] text-xl text-gray-800"
                         >logo</span
                     >
-                </div>
+                </a>
                 <div class="hidden md:flex items-center gap-8">
                     <a
                         routerLink="./"
@@ -32,11 +32,6 @@ import { RouterLink } from '@angular/router';
                         routerLink="./result"
                         class="text-gray-700 hover:text-primary transition-colors"
                         >Natijani aniqlash</a
-                    >
-                    <a
-                        href="#"
-                        class="text-gray-700 hover:text-primary transition-colors"
-                        >Bog'lanish</a
                     >
                 </div>
                 <button
